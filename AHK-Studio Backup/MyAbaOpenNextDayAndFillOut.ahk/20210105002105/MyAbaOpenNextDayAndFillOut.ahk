@@ -7,9 +7,7 @@
 ; Precondition: The focus is on the 'next day' position. There is data to be saved.
 ; Aftercondition: The focus is on the 'next day' position. There is data to be saved.
 ; ---------------------------------------------------------------------------------
-Progress, zh0 fs18, ,Waiting until you press Ctrl+j
-Sleep, 4000
-Progress, OFF
+Progress, zh0 fs18, ,Waiting until you press "^ + j"
 
 ^j::
 SaveAndFwd()

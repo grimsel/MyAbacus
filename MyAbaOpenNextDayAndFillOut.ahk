@@ -17,6 +17,8 @@ Sleep, 1000
 ;Verify: The panel has changed to the next day
 
 Progress, zh0 fs18, 4 values
+;SetKeyDelay, 200
+SetKeyDelay, 500
 Send, {Tab}
 Progress, zh0 fs18, ,morning filling 
 Send, 8{ Tab }12{ Tab}

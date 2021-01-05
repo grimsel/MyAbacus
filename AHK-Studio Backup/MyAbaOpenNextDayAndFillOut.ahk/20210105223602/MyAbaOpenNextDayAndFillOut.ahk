@@ -31,15 +31,15 @@ while(%SchlaufeRaus% = false )
 		SaveAndFwd()
 		Set4Values()
 	}
-	IfMsgBox, Cancel
-	{
-		SchlaufeRaus = true
-		Return;
-	}
+	; IfMsgBox, Cancel
+	; %SchlaufeRaus% = true
+	; Return;
 }
 Progress,OFF	
 
-return; End of script
+
+
+return
 
 SaveAndFwd()
 {
@@ -49,29 +49,20 @@ SaveAndFwd()
 	if DebugEnterKey=true
 	{
 		SchlaufeRaus = false
-		MyCount = 0
 		while(%SchlaufeRaus% = false )
 		{
-			
-			Send, {Enter}
-			MyCount++
-			MsgBox,35,Enterkey pressed %MyCount%. time.`nPress again?`n(else continue)
+			Progress, OFF
+			MsgBox,35,Fill-in NextDay?
 			
 			IfMsgBox, Yes
 			{
 			}
-			IfMsgBox, No
-			{
-				SchlaufeRaus = true
-			}
-			IfMsgBox, Cancel
-			{
-				SchlaufeRaus = true
-				Return;
-			}
+		; IfMsgBox, Cancel
+		; %SchlaufeRaus% = true
+		; Return;
 		}	
 	}
-	else; if DebugEnterKey=false; press the enter key automatically
+	else; if DebugEnterKey=false; automated pressing of enter key
 	{
 		Progress, %POptions%, Enter Nr.1`nWait long
 		Send, {Enter}

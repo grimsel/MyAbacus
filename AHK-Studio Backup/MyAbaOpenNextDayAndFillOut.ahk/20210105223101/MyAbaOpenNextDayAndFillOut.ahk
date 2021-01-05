@@ -31,59 +31,27 @@ while(%SchlaufeRaus% = false )
 		SaveAndFwd()
 		Set4Values()
 	}
-	IfMsgBox, Cancel
-	{
-		SchlaufeRaus = true
-		Return;
-	}
+	; IfMsgBox, Cancel
+	; %SchlaufeRaus% = true
+	; Return;
 }
 Progress,OFF	
 
-return; End of script
+
+
+return
 
 SaveAndFwd()
 {
 	; Saves the timestamps and navigates to the next days 'next day' position
 	; Precondition: The focus is on the 'next day' position. There is data to be saved.
-	DebugEnterKey=true;  ; manually Control pressing of the enter key
-	if DebugEnterKey=true
-	{
-		SchlaufeRaus = false
-		MyCount = 0
-		while(%SchlaufeRaus% = false )
-		{
-			
-			Send, {Enter}
-			MyCount++
-			MsgBox,35,Enterkey pressed %MyCount%. time.`nPress again?`n(else continue)
-			
-			IfMsgBox, Yes
-			{
-			}
-			IfMsgBox, No
-			{
-				SchlaufeRaus = true
-			}
-			IfMsgBox, Cancel
-			{
-				SchlaufeRaus = true
-				Return;
-			}
-		}	
-	}
-	else; if DebugEnterKey=false; press the enter key automatically
-	{
-		Progress, %POptions%, Enter Nr.1`nWait long
-		Send, {Enter}
-		Sleep, 3000 ;Beim zweiten Mal verstreicht viel Zeit um Seite neu zu laden
-		Progress, %POptions%, Enter Nr.2`nWait short
-		Send, {Enter}
-		Sleep, 1000
-		;Verify: The panel has changed to the next day
-		
-	}
-	
-	
+	Progress, %POptions%, Enter Nr.1`nWait long
+	Send, {Enter}
+	Sleep, 3000 ;Beim zweiten Mal verstreicht viel Zeit um Seite neu zu laden
+	Progress, %POptions%, Enter Nr.2`nWait short
+	Send, {Enter}
+	Sleep, 1000
+	;Verify: The panel has changed to the next day
 	
 }
 Set4Values()

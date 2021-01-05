@@ -45,10 +45,9 @@ SaveAndFwd()
 {
 	; Saves the timestamps and navigates to the next days 'next day' position
 	; Precondition: The focus is on the 'next day' position. There is data to be saved.
-	Progress, %POptions%, Enter Nr.1`nWait long
+	Progress, %POptions%, 2 times enter
 	Send, {Enter}
 	Sleep, 3000 ;Beim zweiten Mal verstreicht viel Zeit um Seite neu zu laden
-	Progress, %POptions%, Enter Nr.2`nWait short
 	Send, {Enter}
 	Sleep, 1000
 	;Verify: The panel has changed to the next day

@@ -50,10 +50,9 @@ SaveAndFwd()
 	; Saves the timestamps and navigates to the next days 'next day' position
 	; Precondition: The focus is on the 'next day' position. There is data to be saved.
      ; Aftercondition: The focus is on the 'next day' position. There is no data to be saved.
-	
-	DebugEnterKey=true  ; manually Control pressing of the enter key
-	if (%DebugEnterKey%=true)
-	{
+
+	DebugEnterKey=true;  ; manually Control pressing of the enter key
+	if (%DebugEnterKey%=true)	{
 		MsgBox,64,Info,In DebugMode now
 		SchlaufeRaus = false
 		MyCount = 0
@@ -62,7 +61,7 @@ SaveAndFwd()
 			
 			Send, {Enter}
 			MyCount++
-		MsgBox,35,Enterkey pressed`ntext1`n`ntext2 %MyCount%. time.`nPress again?`n(else continue)
+			MsgBox,35,Enterkey pressed %MyCount%. time.`nPress again?`n(else continue)
 			
 			IfMsgBox, Yes
 			{
@@ -74,7 +73,7 @@ SaveAndFwd()
 			IfMsgBox, Cancel
 			{
 				SchlaufeRaus = true
-				;Return
+				;Return;
 			}
 		}	
 	}

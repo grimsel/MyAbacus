@@ -62,7 +62,7 @@ SaveAndFwd()
 			
 			Send, {Enter}
 			MyCount++
-		MsgBox,35,Enterkey pressed`ntext1`n`ntext2 %MyCount%. time.`nPress again?`n(else continue)
+			MsgBox,35,Enterkey pressed`ntext1`n`ntext2 %MyCount%. time.`nPress again?`n(else continue)
 			
 			IfMsgBox, Yes
 			{

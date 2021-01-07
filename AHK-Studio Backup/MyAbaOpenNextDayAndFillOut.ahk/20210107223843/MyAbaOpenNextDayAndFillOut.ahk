@@ -28,29 +28,23 @@ while(%SchlaufeRaus% = false )
 	
 	IfMsgBox, Yes
 	{
-		SaveAndFwd() ; Future DoFwd(bool : ButSaveDataFirst=true)
+		SaveAndFwd()
 		Set4Values()
-	}
-	IfMsgBox, No
-	{
-		;Future DoFwd(bool : ButSaveDataFirst=false)
 	}
 	IfMsgBox, Cancel
 	{
 		SchlaufeRaus = true
-		
+		Return;
 	}
 }
-Progress, OFF	
+Progress,OFF	
 
-ExitApp ;End of script
+return; End of script
 
 SaveAndFwd()
 {
 	; Saves the timestamps and navigates to the next days 'next day' position
 	; Precondition: The focus is on the 'next day' position. There is data to be saved.
-     ; Aftercondition: The focus is on the 'next day' position. There is no data to be saved.
-
 	DebugEnterKey=true;  ; manually Control pressing of the enter key
 	if DebugEnterKey=true
 	{
@@ -73,11 +67,11 @@ SaveAndFwd()
 			IfMsgBox, Cancel
 			{
 				SchlaufeRaus = true
-				;Return;
+				Return;
 			}
 		}	
 	}
-	else ; if DebugEnterKey=false; press the enter key automatically
+	else; if DebugEnterKey=false; press the enter key automatically
 	{
 		Progress, %POptions%, Enter Nr.1`nWait long
 		Send, {Enter}

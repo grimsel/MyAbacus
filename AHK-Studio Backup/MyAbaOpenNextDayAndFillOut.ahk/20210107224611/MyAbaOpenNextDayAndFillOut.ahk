@@ -41,9 +41,9 @@ while(%SchlaufeRaus% = false )
 		
 	}
 }
-Progress, OFF	
+Progress,OFF	
 
-ExitApp ;End of script
+return ;End of script
 
 SaveAndFwd()
 {
@@ -77,7 +77,7 @@ SaveAndFwd()
 			}
 		}	
 	}
-	else ; if DebugEnterKey=false; press the enter key automatically
+	else; if DebugEnterKey=false; press the enter key automatically
 	{
 		Progress, %POptions%, Enter Nr.1`nWait long
 		Send, {Enter}

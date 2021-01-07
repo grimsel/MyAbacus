@@ -28,22 +28,22 @@ while(%SchlaufeRaus% = false )
 	
 	IfMsgBox, Yes
 	{
-		SaveAndFwd() ; Future DoFwd(bool : ButSaveDataFirst=true)
+		SaveAndFwd(); Future DoFwd(bool : ButSaveDataFirst)
 		Set4Values()
 	}
 	IfMsgBox, No
 	{
-		;Future DoFwd(bool : ButSaveDataFirst=false)
-	}
-	IfMsgBox, Cancel
+		FwdOnly()
+		;Set4Values()
+	}IfMsgBox, Cancel
 	{
 		SchlaufeRaus = true
 		
 	}
 }
-Progress, OFF	
+Progress,OFF	
 
-ExitApp ;End of script
+return; End of script
 
 SaveAndFwd()
 {
@@ -73,11 +73,11 @@ SaveAndFwd()
 			IfMsgBox, Cancel
 			{
 				SchlaufeRaus = true
-				;Return;
+				Return;
 			}
 		}	
 	}
-	else ; if DebugEnterKey=false; press the enter key automatically
+	else; if DebugEnterKey=false; press the enter key automatically
 	{
 		Progress, %POptions%, Enter Nr.1`nWait long
 		Send, {Enter}
